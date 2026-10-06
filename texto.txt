@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLACK XITADA - Painel Free Fire VIP</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- QR Code Generator -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            darkBg: '#080311',
+                            cardBg: '#130924',
+                            purple: '#9333ea',
+                            accent: '#c084fc',
+                            neon: '#a855f7',
+                            border: '#3b0764'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #080311;
+            color: #f3f4f6;
+        }
+        h1, h2, h3, .font-heading {
+            font-family: 'Rajdhani', sans-serif;
+        }
+        .glow-purple {
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.35);
+        }
+        .glow-border {
+            border: 1px solid rgba(168, 85, 247, 0.4);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #080311;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #581c87;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between custom-scrollbar bg-[#080311] text-gray-100">
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-40 bg-[#0d051d]/90 backdrop-blur-md border-b border-purple-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="navigateTo('home')">
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-purple-700 to-indigo-500 flex items-center justify-center font-bold text-xl text-white shadow-lg shadow-purple-900/50">
+                    BX
+                </div>
+                <div>
+                    <span class="text-2xl font-extrabold tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-300 font-heading">
+                        BLACK XITADA
+                    </span>
+                    <span class="text-[10px] block text-purple-400 -mt-1 font-semibold tracking-widest uppercase">100% Anti-Ban</span>
+                </div>
+            </div>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
+                <button onclick="navigateTo('home')" class="hover:text-purple-400 transition flex items-center gap-1.5"><i class="fa-solid fa-store text-purple-500"></i> Loja Xit</button>
+                <button onclick="navigateTo('proofs')" class="hover:text-purple-400 transition flex items-center gap-1.5"><i class="fa-solid fa-shield-halved text-purple-500"></i> Provas & Reviews</button>
+                <button onclick="navigateTo('my-downloads')" class="hover:text-purple-400 transition flex items-center gap-1.5"><i class="fa-solid fa-download text-purple-500"></i> Meus Downloads</button>
+                <button onclick="navigateTo('support')" class="hover:text-purple-400 transition flex items-center gap-1.5"><i class="fa-solid fa-headset text-purple-500"></i> Suporte</button>
+            </nav>
+
+            <!-- User Auth Buttons -->
+            <div id="navUserArea" class="flex items-center gap-3">
+                <!-- Dynamically populated via JS -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Global Toast Alert Container -->
+    <div id="toastContainer" class="fixed top-20 right-4 z-50 flex flex-col gap-2 max-w-sm w-full"></div>
+
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <!-- VIEW: Home / Store -->
+        <section id="view-home" class="space-y-8">
+            <!-- Hero Banner -->
+            <div class="relative rounded-2xl overflow-hidden bg-gradient-to-r from-purple-950 via-slate-900 to-black p-6 md:p-10 border border-purple-800/40 glow-purple">
+                <div class="relative z-10 max-w-2xl space-y-4">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-900/60 border border-purple-500/50 text-purple-300 text-xs font-semibold uppercase tracking-wider">
+                        <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span> Atualizado para Última Versão FF
+                    </div>
+                    <h1 class="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight">
+                        DOMINE O FREE FIRE COM <span class="text-purple-400">BLACK XITADA</span>
+                    </h1>
+                    <p class="text-gray-300 text-sm md:text-base leading-relaxed">
+                        Painel VIP 100% seguro, Bypass Anti-Ban ativado e suporte para Android, iPhone e PC. Compre agora via PIX automático com entrega imediata!
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <a href="#store-products" class="px-6 py-3 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-sm shadow-lg shadow-purple-900/50 transition transform hover:-translate-y-0.5">
+                            <i class="fa-solid fa-cart-shopping mr-2"></i> Ver Produtos
+                        </a>
+                        <button onclick="navigateTo('proofs')" class="px-6 py-3 rounded-xl bg-purple-950/80 hover:bg-purple-900 border border-purple-700/50 text-purple-200 font-bold text-sm transition">
+                            <i class="fa-solid fa-[#instagram] fa-brands mr-2"></i> Ver Feedback Clientes
+                        </button>
+                    </div>
+                </div>
+                <div class="absolute right-0 bottom-0 top-0 opacity-15 md:opacity-30 pointer-events-none flex items-center justify-end pr-10">
+                    <i class="fa-solid fa-crosshairs text-[220px] text-purple-500"></i>
+                </div>
+            </div>
+
+            <!-- Anti-Ban Security Guarantee Banner -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-[#130924] p-4 rounded-xl border border-purple-900/50 flex items-center space-x-4">
+                    <div class="w-12 h-12 rounded-lg bg-purple-900/50 flex items-center justify-center text-purple-400 text-2xl">
+                        <i class="fa-solid fa-shield-cat"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-purple-200">Bypass 100% Anti-Ban</h4>
+                        <p class="text-xs text-gray-400">Invisível aos sistemas de detecção do FF.</p>
+                    </div>
+                </div>
+                <div class="bg-[#130924] p-4 rounded-xl border border-purple-900/50 flex items-center space-x-4">
+                    <div class="w-12 h-12 rounded-lg bg-purple-900/50 flex items-center justify-center text-purple-400 text-2xl">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-purple-200">Entrega Instantânea</h4>
+                        <p class="text-xs text-gray-400">Gerou o PIX, pagou, baixou na hora.</p>
+                    </div>
+                </div>
+                <div class="bg-[#130924] p-4 rounded-xl border border-purple-900/50 flex items-center space-x-4">
+                    <div class="w-12 h-12 rounded-lg bg-purple-900/50 flex items-center justify-center text-purple-400 text-2xl">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-purple-200">Multi Plataforma</h4>
+                        <p class="text-xs text-gray-400">Suporte para Android, iOS (iPhone) e PC Emulador.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Store Section -->
+            <div id="store-products" class="space-y-6 pt-4">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                    <div>
+                        <h2 class="text-2xl font-bold font-heading text-white flex items-center gap-2">
+                            <i class="fa-solid fa-fire text-purple-500"></i> Catálogo XIT VIP
+                        </h2>
+                        <p class="text-xs text-gray-400">Escolha o plano ideal para a sua plataforma</p>
+                    </div>
+                    <!-- Platform Filter -->
+                    <div class="flex bg-[#130924] p-1 rounded-xl border border-purple-900/60 text-xs">
+                        <button onclick="filterProducts('all')" id="btn-filter-all" class="px-3 py-1.5 rounded-lg font-semibold bg-purple-600 text-white">Todos</button>
+                        <button onclick="filterProducts('android')" id="btn-filter-android" class="px-3 py-1.5 rounded-lg font-semibold text-gray-400 hover:text-white">Android</button>
+                        <button onclick="filterProducts('ios')" id="btn-filter-ios" class="px-3 py-1.5 rounded-lg font-semibold text-gray-400 hover:text-white">iPhone (iOS)</button>
+                        <button onclick="filterProducts('pc')" id="btn-filter-pc" class="px-3 py-1.5 rounded-lg font-semibold text-gray-400 hover:text-white">PC</button>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div id="productsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Products dynamically rendered by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- VIEW: Provas e Reviews / Feedbacks -->
+        <section id="view-proofs" class="hidden space-y-8">
+            <div>
+                <h2 class="text-3xl font-bold font-heading text-white">Provas de Clientes & Avaliações</h2>
+                <p class="text-gray-400 text-sm">Confira os feedbacks reais da nossa comunidade. Todos confirmando que <strong class="text-purple-400">NÃO DÁ BAN</strong>!</p>
+            </div>
+
+            <!-- Instagram / WhatsApp Screenshots Mockup Section -->
+            <div class="space-y-4">
+                <h3 class="text-xl font-bold text-purple-300 flex items-center gap-2">
+                    <i class="fa-brands fa-instagram text-pink-500"></i> Print de Clientes no Instagram & WhatsApp
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Proof Mockup 1 -->
+                    <div class="bg-[#130924] border border-purple-900/60 rounded-2xl p-4 space-y-3">
+                        <div class="flex items-center justify-between border-b border-purple-900/40 pb-2">
+                            <div class="flex items-center gap-2">
+                                <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-yellow-500 via-pink-500 to-purple-600 p-[2px]">
+                                    <div class="w-full h-full bg-black rounded-full flex items-center justify-center text-xs font-bold">FF</div>
+                                </div>
+                                <span class="text-xs font-bold text-white">@nobru_da_xit</span>
+                            </div>
+                            <span class="text-[10px] text-gray-400">Instagram DM</span>
+                        </div>
+                        <div class="bg-black/60 rounded-xl p-3 space-y-2 text-xs">
+                            <div class="bg-purple-950/80 p-2 rounded-lg max-w-[85%] border border-purple-800/40">
+                                Mano o xit tá funcionando no iPhone?
+                            </div>
+                            <div class="bg-purple-700/80 p-2 rounded-lg max-w-[85%] ml-auto text-right text-white font-medium">
+                                Sim bro! Auxílio 100% + Bypass ativado.
+                            </div>
+                            <div class="bg-purple-950/80 p-2 rounded-lg max-w-[90%] border border-purple-800/40">
+                                CARALHO TÔ SÓ DANDO CAPA DE VSS! Subi pra Mestre em 2 dias e ZERO BAN! Vcompro todo mês agora mano 🔥❤️
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between text-xs text-purple-400 pt-1">
+                            <span class="flex items-center gap-1"><i class="fa-solid fa-circle-check text-green-400"></i> Anti-ban Testado</span>
+                            <span class="text-gray-400 text-[10px]">Há 2 horas</span>
+                        </div>
+                    </div>
+
+                    <!-- Proof Mockup 2 -->
+                    <div class="bg-[#130924] border border-purple-900/60 rounded-2xl p-4 space-y-3">
+                        <div class="flex items-center justify-between border-b border-purple-900/40 pb-2">
+                            <div class="flex items-center gap-2">
+                                <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-green-500 to-emerald-700 p-[2px]">
+                                    <div class="w-full h-full bg-black rounded-full flex items-center justify-center text-xs font-bold">WP</div>
+                                </div>
+                                <span class="text-xs font-bold text-white">@capa_black_ff</span>
+                            </div>
+                            <span class="text-[10px] text-gray-400">WhatsApp VIP</span>
+                        </div>
+                        <div class="bg-black/60 rounded-xl p-3 space-y-2 text-xs">
+                            <div class="bg-purple-700/80 p-2 rounded-lg max-w-[85%] text-white">
+                                O arquivo xit black tá instalado certinho no Android.
+                            </div>
+                            <div class="bg-purple-950/80 p-2 rounded-lg max-w-[90%] border border-purple-800/40">
+                                Mlk do céu, ativei o Zé da Manga e hs 100%. Já joguei 35 partidas ranqueadas e a conta tá intacta. Nota 10 pro suporte da Black Xitada!
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between text-xs text-purple-400 pt-1">
+                            <span class="flex items-center gap-1"><i class="fa-solid fa-circle-check text-green-400"></i> Comprovado sem Ban</span>
+                            <span class="text-gray-400 text-[10px]">Ontem</span>
+                        </div>
+                    </div>
+
+                    <!-- Proof Mockup 3 -->
+                    <div class="bg-[#130924] border border-purple-900/60 rounded-2xl p-4 space-y-3">
+                        <div class="flex items-center justify-between border-b border-purple-900/40 pb-2">
+                            <div class="flex items-center gap-2">
+                                <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-purple-500 to-indigo-600 p-[2px]">
+                                    <div class="w-full h-full bg-black rounded-full flex items-center justify-center text-xs font-bold">PC</div>
+                                </div>
+                                <span class="text-xs font-bold text-white">@bak_xit_pc</span>
+                            </div>
+                            <span class="text-[10px] text-gray-400">Instagram Story</span>
+                        </div>
+                        <div class="bg-black/60 rounded-xl p-3 space-y-2 text-xs text-center">
+                            <div class="py-4 border border-purple-800/40 rounded-lg bg-gradient-to-b from-purple-900/30 to-black">
+                                <i class="fa-solid fa-trophy text-amber-400 text-3xl mb-1"></i>
+                                <p class="font-bold text-white text-sm">DESAFIANTE ALCANÇADO</p>
+                                <p class="text-[11px] text-purple-300">"Sem lag, sem ban, 100% capa xitada no BlueStacks!"</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between text-xs text-purple-400 pt-1">
+                            <span class="flex items-center gap-1"><i class="fa-solid fa-circle-check text-green-400"></i> PC Bypass OK</span>
+                            <span class="text-gray-400 text-[10px]">Há 3 dias</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review Submission Form & User Reviews Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 pt-4">
+                <!-- Submit Form -->
+                <div class="bg-[#130924] border border-purple-900/60 rounded-2xl p-6 space-y-4 h-fit">
+                    <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-pen-to-square text-purple-400"></i> Deixe sua Avaliação
+                    </h3>
+                    <form id="reviewForm" onsubmit="handleReviewSubmit(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-medium text-gray-300 mb-1">Seu Nick no FF</label>
+                            <input type="text" id="reviewNick" required placeholder="Ex: Black_King99" class="w-full bg-black/50 border border-purple-900/80 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-purple-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-gray-300 mb-1">Sua Nota</label>
+                            <select id="reviewRating" class="w-full bg-black/50 border border-purple-900/80 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-purple-500">
+                                <option value="5">⭐⭐⭐⭐⭐ (5/5) Excelente - Não dá ban!</option>
+                                <option value="4">⭐⭐⭐⭐ (4/5) Muito Bom</option>
+                                <option value="3">⭐⭐⭐ (3/5) Satisfatório</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-gray-300 mb-1">Sua Opinião / Comentário</label>
+                            <textarea id="reviewComment" rows="3" required placeholder="Conte como foi sua experiência com o xit..." class="w-full bg-black/50 border border-purple-900/80 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-purple-500 custom-scrollbar"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-3 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-sm shadow-lg shadow-purple-900/40 transition">
+                            Enviar Avaliação
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Reviews Display List -->
+                <div class="lg:col-span-2 space-y-4">
+                    <h3 class="text-xl font-bold text-white flex items-center justify-between">
+                        <span><i class="fa-solid fa-comments text-purple-400"></i> Opiniões dos Jogadores</span>
+                        <span id="reviewCountBadge" class="text-xs bg-purple-900/60 px-2.5 py-1 rounded-full border border-purple-700/50 text-purple-300"></span>
+                    </h3>
+                    <div id="reviewsList" class="space-y-4">
+                        <!-- Dynamic Reviews -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIEW: Meus Downloads -->
+        <section id="view-my-downloads" class="hidden space-y-6">
+            <div>
+                <h2 class="text-3xl font-bold font-heading text-white">Meus Arquivos / Downloads</h2>
+                <p class="text-gray-400 text-sm">Aqui ficam armazenados os seus Xits comprados prontos para baixar e instalar.</p>
+            </div>
+
+            <div id="downloadsList" class="space-y-4">
+                <!-- Dynamically populated downloads or empty state -->
+            </div>
+        </section>
+
+        <!-- VIEW: Suporte ao Cliente -->
+        <section id="view-support" class="hidden space-y-6 max-w-2xl mx-auto">
+            <div class="text-center space-y-2">
+                <h2 class="text-3xl font-bold font-heading text-white">Suporte VIP & Dúvidas</h2>
+                <p class="text-gray-400 text-sm">Teve alguma dúvida na instalação ou pagamento? Envie uma mensagem que o Adm responde rapidamente!</p>
+            </div>
+
+            <div class="bg-[#130924] border border-purple-900/60 rounded-2xl p-6 shadow-xl space-y-4">
+                <form id="supportForm" onsubmit="handleSupportSubmit(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-medium text-gray-300 mb-1">Seu Nick no FF</label>
+                        <input type="text" id="supportNick" required placeholder="Seu nick no Free Fire" class="w-full bg-black/50 border border-purple-900/80 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-purple-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-gray-300 mb-1">ID do Free Fire (Números)</label>
+                        <input type="text" id="supportFFID" pattern="[0-9]*" required placeholder="Apenas números (Ex: 12345678)" oninput="this.value = this.value.replace(/[^0-9]/g, '')" class="w-full bg-black/50 border border-purple-900/80 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-purple-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-gray-300 mb-1">Assunto / Problema</label>
+                        <input type="text" id="supportSubject" required placeholder="Ex: Como instalar no iPhone / Ajuda no Pix" class="w-full bg-black/50 border border-purple-900/80 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-purple-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-gray-300 mb-1">Sua Mensagem</label>
+                        <textarea id="supportMessage" rows="4" required placeholder="Descreva sua dúvida com detalhes..." class="w-full bg-black/50 border border-purple-900/80 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-purple-500 custom-scrollbar"></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-3 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-sm shadow-lg shadow-purple-900/40 transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-paper-plane"></i> Enviar para o Suporte
+                    </button>
+                </form>
+
+                <!-- Ticket History -->
+                <div class="pt-6 border-t border-purple-900/40 space-y-3">
+                    <h4 class="text-sm font-bold text-purple-300">Meus Chamados Enviados</h4>
+                    <div id="userSupportTickets" class="space-y-3 text-xs">
+                        <!-- Dynamic Tickets -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIEW: Admin Dashboard -->
+        <section id="view-admin" class="hidden space-y-8">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-[#130924] p-6 rounded-2xl border border-purple-900/60">
+                <div>
+                    <h2 class="text-3xl font-bold font-heading text-white flex items-center gap-2">
+                        <i class="fa-solid fa-user-shield text-purple-400"></i> Painel de Administração (ADM)
+                    </h2>
+                    <p class="text-xs text-gray-400">Visão geral do sistema BLACK XITADA</p>
+                </div>
+                <div class="flex items-center gap-2 bg-purple-950/80 border border-purple-800/60 px-4 py-2 rounded-xl text-xs">
+                    <span class="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse"></span>
+                    <span class="text-purple-200 font-semibold">Logado como: Adm Supremo</span>
+                </div>
+            </div>
+
+            <!-- Stats Overview Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-[#130924] p-5 rounded-2xl border border-purple-900/50 space-y-1">
+                    <span class="text-xs font-semibold text-gray-400 uppercase">Vendas Totais</span>
+                    <div class="text-2xl font-black text-white" id="adminTotalSales">0</div>
+                    <span class="text-[10px] text-green-400"><i class="fa-solid fa-arrow-up"></i> Atualizado em tempo real</span>
+                </div>
+                <div class="bg-[#130924] p-5 rounded-2xl border border-purple-900/50 space-y-1">
+                    <span class="text-xs font-semibold text-gray-400 uppercase">Faturamento Pix</span>
+                    <div class="text-2xl font-black text-purple-400" id="adminTotalRevenue">R$ 0,00</div>
+                    <span class="text-[10px] text-purple-300">Pix Nubank 119484730143</span>
+                </div>
+                <div class="bg-[#130924] p-5 rounded-2xl border border-purple-900/50 space-y-1">
+                    <span class="text-xs font-semibold text-gray-400 uppercase">Chamados Suporte</span>
+                    <div class="text-2xl font-black text-amber-400" id="adminActiveTickets">0</div>
+                    <span class="text-[10px] text-gray-400">Aguardando resposta</span>
+                </div>
+                <div class="bg-[#130924] p-5 rounded-2xl border border-purple-900/50 space-y-1">
+                    <span class="text-xs font-semibold text-gray-400 uppercase">Avaliações Recebidas</span>
+                    <div class="text-2xl font-black text-emerald-400" id="adminTotalReviews">0</div>
+                    <span class="text-[10px] text-emerald-300">100% Positivas sem ban</span>
+                </div>
+            </div>
+
+            <!-- Tabs in Admin -->
+            <div class="space-y-6">
+                <!-- Sales Log Table -->
+                <div class="bg-[#130924] border border-purple-900/60 rounded-2xl p-6 space-y-4">
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-receipt text-purple-400"></i> Histórico de Compras e Vendas
+                    </h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-xs text-gray-300">
+                            <thead class="bg-black/40 text-purple-300 uppercase tracking-wider text-[10px]">
+                                <tr>
+                                    <th class="p-3 rounded-l-lg">Nick FF</th>
+                                    <th class="p-3">ID FF (Números)</th>
+                                    <th class="p-3">Dispositivo</th>
+                                    <th class="p-3">Produto</th>
+                                    <th class="p-3">Valor</th>
+                                    <th class="p-3">Data</th>
+                                    <th class="p-3 rounded-r-lg">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="adminSalesTable" class="divide-y divide-purple-900/30">
+                                <!-- Dynamic Sales -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Support Ticket Management -->
+                <div class="bg-[#130924] border border-purple-900/60 rounded-2xl p-6 space-y-4">
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-headset text-purple-400"></i> Chamados do Suporte para Responder
+                    </h3>
+                    <div id="adminSupportList" class="space-y-4">
+                        <!-- Dynamic Admin Tickets -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- MODAL 1: Login & Register Modal -->
+    <div id="authModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-[#130924] border border-purple-800/80 rounded-2xl max-w-md w-full p-6 shadow-2xl relative glow-purple space-y-6">
+            <button onclick="closeModal('authModal')" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+
+            <!-- Auth Tabs -->
+            <div class="flex border-b border-purple-900/60">
+                <button onclick="switchAuthTab('user')" id="tabUserAuth" class="flex-1 py-2.5 font-bold text-sm border-b-2 border-purple-500 text-purple-300">
+                    <i class="fa-solid fa-gamepad mr-1"></i> Entrar / Cadastrar FF
+                </button>
+                <button onclick="switchAuthTab('admin')" id="tabAdminAuth" class="flex-1 py-2.5 font-bold text-sm border-b-2 border-transparent text-gray-400 hover:text-gray-200">
+                    <i class="fa-solid fa-lock mr-1"></i> ÁREA ADM
+                </button>
+            </div>
+
+            <!-- User Auth Form -->
+            <form id="userAuthForm" onsubmit="handleUserAuth(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-gray-300 mb-1">Nick do Free Fire</label>
+                    <div class="relative">
+                        <span class="absolute left-3 top-3 text-purple-400"><i class="fa-solid fa-user"></i></span>
+                        <input type="text" id="authFFNick" required placeholder="Digite seu Nick do jogo" class="w-full bg-black/60 border border-purple-900/80 rounded-xl pl-10 pr-4 py-2.5 text-sm text-white focus:outline-none focus:border-purple-500">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-300 mb-1">Senha</label>
+                    <div class="relative">
+                        <span class="absolute left-3 top-3 text-purple-400"><i class="fa-solid fa-key"></i></span>
+                        <!-- Password field masked as bullets by default -->
+                        <input type="password" id="authPassword" required placeholder="Sua senha secreta" class="w-full bg-black/60 border border-purple-900/80 rounded-xl pl-10 pr-10 py-2.5 text-sm text-white focus:outline-none focus:border-purple-500">
+                        <button type="button" onclick="togglePasswordVisibility('authPassword', 'eyeIconUser')" class="absolute right-3 top-3 text-gray-400 hover:text-white">
+                            <i id="eyeIconUser" class="fa-solid fa-eye-slash"></i>
+                        </button>
+                    </div>
+                    <span class="text-[10px] text-gray-400 mt-1 block">* Senha protegida e oculta por padrão</span>
+                </div>
+                <button type="submit" class="w-full py-3 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-sm shadow-lg shadow-purple-900/50 transition">
+                    Entrar na Conta FF
+                </button>
+            </form>
+
+            <!-- Admin Auth Form -->
+            <form id="adminAuthForm" onsubmit="handleAdminAuth(event)" class="hidden space-y-4">
+                <div class="bg-purple-950/60 p-3 rounded-xl border border-purple-800/50 text-xs text-purple-300">
+                    <i class="fa-solid fa-shield-halved mr-1"></i> Login restrito ao Administrador Supremo.
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-300 mb-1">Usuário ADM</label>
+                    <div class="relative">
+                        <span class="absolute left-3 top-3 text-purple-400"><i class="fa-solid fa-user-shield"></i></span>
+                        <input type="text" id="adminUser" required placeholder="Usuário Admin" class="w-full bg-black/60 border border-purple-900/80 rounded-xl pl-10 pr-4 py-2.5 text-sm text-white focus:outline-none focus:border-purple-500">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-300 mb-1">Senha ADM</label>
+                    <div class="relative">
+                        <span class="absolute left-3 top-3 text-purple-400"><i class="fa-solid fa-lock"></i></span>
+                        <!-- Masked password input -->
+                        <input type="password" id="adminPass" required placeholder="••••••••" class="w-full bg-black/60 border border-purple-900/80 rounded-xl pl-10 pr-10 py-2.5 text-sm text-white focus:outline-none focus:border-purple-500">
+                        <button type="button" onclick="togglePasswordVisibility('adminPass', 'eyeIconAdmin')" class="absolute right-3 top-3 text-gray-400 hover:text-white">
+                            <i id="eyeIconAdmin" class="fa-solid fa-eye-slash"></i>
+                        </button>
+                    </div>
+                    <p class="text-[10px] text-gray-400 mt-1">Dica de teste: Usuário: <code class="text-purple-300">admin</code> | Senha: <code class="text-purple-300">12345</code></p>
+                </div>
+                <button type="submit" class="w-full py-3 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-sm shadow-lg shadow-purple-900/50 transition">
+                    Acessar Painel ADM
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 2: Product Checkout & ID Selection Modal -->
+    <div id="checkoutModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-[#130924] border border-purple-800/80 rounded-2xl max-w-md w-full p-6 shadow-2xl relative glow-purple space-y-5">
+            <button onclick="closeModal('checkoutModal')" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+
+            <div class="text-center space-y-1 border-b border-purple-900/50 pb-3">
+                <h3 class="text-2xl font-bold font-heading text-white" id="checkoutProductName">Carregando Xit...</h3>
+                <span id="checkoutProductPrice" class="text-xl font-black text-purple-400">R$ 0,00</span>
+            </div>
+
+            <form id="purchaseForm" onsubmit="generatePixPayment(event)" class="space-y-4">
+                <!-- Device Selection -->
+                <div>
+                    <label class="block text-xs font-semibold text-gray-300 mb-1">Qual o seu Dispositivo/Aparelho?</label>
+                    <select id="checkoutDevice" required class="w-full bg-black/60 border border-purple-900/80 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-purple-500">
+                        <option value="" disabled selected>Selecione celular ou PC...</option>
+                        <option value="Android">Celular Android (APK VIP)</option>
+                        <option value="iPhone (iOS)">Celular iPhone / iPad (iOS IPA VIP)</option>
+                        <option value="PC Emulador">PC Windows (Emulador BlueStacks/SmartGaaga)</option>
+                    </select>
+                </div>
+
+                <!-- FF ID Numeric Field -->
+                <div>
+                    <label class="block text-xs font-semibold text-gray-300 mb-1">Digite seu ID do Free Fire (Apenas Números)</label>
+                    <div class="relative">
+                        <span class="absolute left-3 top-3 text-purple-400"><i class="fa-solid fa-id-card"></i></span>
+                        <input type="text" id="checkoutFFID" required pattern="[0-9]*" inputmode="numeric" placeholder="Ex: 84729103" oninput="this.value = this.value.replace(/[^0-9]/g, '')" class="w-full bg-black/60 border border-purple-900/80 rounded-xl pl-10 pr-4 py-2.5 text-sm text-white focus:outline-none focus:border-purple-500">
+                    </div>
+                    <span class="text-[10px] text-amber-400 block mt-1"><i class="fa-solid fa-triangle-exclamation"></i> Campo restrito: insira somente os dígitos do seu ID.</span>
+                </div>
+
+                <!-- Anti Ban Assurance -->
+                <div class="bg-purple-950/40 p-3 rounded-xl border border-purple-900/50 flex items-center gap-3">
+                    <i class="fa-solid fa-shield-check text-green-400 text-xl"></i>
+                    <div class="text-[11px] text-purple-200">
+                        <p class="font-bold">Bypass de Segurança Ativo</p>
+                        <p class="text-gray-400">Garante imunidade total contra suspensão ou ban na conta do jogo.</p>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-bold text-sm shadow-xl shadow-purple-900/50 transition">
+                    Gerar Pagamento PIX
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 3: PIX Payment Display Modal -->
+    <div id="pixModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-[#130924] border border-purple-800/80 rounded-2xl max-w-md w-full p-6 shadow-2xl relative glow-purple space-y-5 text-center">
+            <button onclick="closeModal('pixModal')" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-900/60 border border-purple-500/50 text-purple-300 text-xs font-bold">
+                <i class="fa-solid fa-qrcode"></i> Pagamento Instanâneo PIX Nubank
+            </div>
+
+            <div>
+                <h3 class="text-xl font-bold text-white">Chave Pix Para Enviar</h3>
+                <p class="text-xs text-gray-400">Abra o app do seu banco e faça a transferência</p>
+            </div>
+
+            <!-- QR Code Display Box -->
+            <div class="bg-white p-4 rounded-2xl w-48 h-48 mx-auto flex items-center justify-center shadow-inner" id="qrcodeContainer"></div>
+
+            <!-- Nubank Key Highlight -->
+            <div class="bg-purple-950/80 border border-purple-700/60 p-3 rounded-xl space-y-1">
+                <span class="text-[11px] text-purple-300 font-semibold block uppercase">Chave PIX Telefone (Nubank)</span>
+                <div class="flex items-center justify-center gap-2 text-lg font-mono font-bold text-emerald-400">
+                    <span id="nubankPixKey">119484730143</span>
+                    <button onclick="copyToClipboard('119484730143')" class="text-xs bg-purple-800 hover:bg-purple-700 text-white px-2 py-1 rounded-lg">
+                        <i class="fa-solid fa-copy"></i> Copiar
+                    </button>
+                </div>
+                <span class="text-[10px] text-gray-400 block">Favorecido: BLACK XITADA NUBANK VIP</span>
+            </div>
+
+            <!-- Copy Paste Code -->
+            <div class="space-y-1 text-left">
+                <label class="text-[11px] text-gray-400 font-medium">Código PIX Copia e Cola:</label>
+                <div class="flex gap-2">
+                    <input type="text" readonly id="pixCopiaCola" class="w-full bg-black/60 border border-purple-900/80 rounded-xl px-3 py-2 text-xs text-gray-300 truncate">
+                    <button onclick="copyToClipboard(document.getElementById('pixCopiaCola').value)" class="bg-purple-600 hover:bg-purple-700 text-white px-3 py-2 rounded-xl text-xs font-bold whitespace-nowrap">
+                        Copiar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Simulate Payment Trigger -->
+            <div class="pt-2 border-t border-purple-900/40">
+                <button onclick="confirmSimulatedPayment()" class="w-full py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-lg shadow-emerald-950/50 transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-circle-check"></i> Confirmar Pagamento Simulado
+                </button>
+                <span class="text-[10px] text-gray-400 block mt-1">Após confirmar, o arquivo "xit black" será liberado para download instantâneo.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-[#05020a] border-t border-purple-900/40 mt-12 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <div class="flex items-center justify-center space-x-2">
+                <div class="w-8 h-8 rounded-lg bg-purple-600 flex items-center justify-center font-bold text-white text-sm">
+                    BX
+                </div>
+                <span class="text-xl font-bold font-heading text-purple-300">BLACK XITADA</span>
+            </div>
+            <p class="text-xs text-gray-500 max-w-md mx-auto">
+                O melhor e mais confiável painel VIP de Free Fire do Brasil. Desenvolvido para Celular (Android & iOS) e PC. 100% Anti-Ban com Bypass exclusivo.
+            </p>
+            <div class="text-[11px] text-purple-400 font-mono">
+                PIX Oficial Nubank: <span class="text-white font-bold">119484730143</span>
+            </div>
+            <p class="text-[10px] text-gray-600">
+                &copy; 2026 BLACK XITADA. Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // State variables
+        let currentUser = null; // { nick, isAdmin }
+        let currentCheckoutProduct = null;
+        let currentOrderPayload = null;
+
+        // Default Catalog Products
+        const products = [
+            {
+                id: 'xit-android-vip',
+                name: 'Xit Black Android VIP',
+                platform: 'android',
+                platformBadge: 'Android APK',
+                icon: 'fa-android',
+                price: 29.90,
+                desc: 'Auxílio de mira 100% HS na cabeça, Zé da Manga e Bypass Anti-ban exclusivo para APK.',
+                fileName: 'xit black.apk'
+            },
+            {
+                id: 'xit-ios-vip',
+                name: 'Xit Black iPhone (iOS) VIP',
+                platform: 'ios',
+                platformBadge: 'iPhone (iOS)',
+                icon: 'fa-apple',
+                price: 39.90,
+                desc: 'Arquivo IPA otimizado para iOS sem necessidade de Jailbreak. Aimbot e Recoil 0.',
+                fileName: 'xit black.ipa'
+            },
+            {
+                id: 'xit-pc-vip',
+                name: 'Xit Black PC Emulador Pro',
+                platform: 'pc',
+                platformBadge: 'PC Windows',
+                icon: 'fa-desktop',
+                price: 49.90,
+                desc: 'Bypass para BlueStacks, MSI e SmartGaaga. Painel externo indetectável no jogo.',
+                fileName: 'xit black.zip'
+            }
+        ];
+
+        // Seed initial LocalStorage Data if not present
+        function initLocalStorage() {
+            if (!localStorage.getItem('bx_purchases')) {
+                const initialPurchases = [
+                    {
+                        id: 'ORD-101',
+                        nick: 'Xitadao_99',
+                        ffid: '84920194',
+                        device: 'Android',
+                        productName: 'Xit Black Android VIP',
+                        fileName: 'xit black.apk',
+                        price: 29.90,
+                        date: '06/10/2026 14:20'
+                    },
+                    {
+                        id: 'ORD-102',
+                        nick: 'Cerol_Falso',
+                        ffid: '99283104',
+                        device: 'iPhone (iOS)',
+                        productName: 'Xit Black iPhone (iOS) VIP',
+                        fileName: 'xit black.ipa',
+                        price: 39.90,
+                        date: '06/10/2026 15:45'
+                    }
+                ];
+                localStorage.setItem('bx_purchases', JSON.stringify(initialPurchases));
+            }
+
+            if (!localStorage.getItem('bx_reviews')) {
+                const initialReviews = [
+                    {
+                        nick: 'Loud_Bak_Fake',
+                        rating: 5,
+                        comment: 'Comprei o xit para PC e mano, é absurdo! 3 dias jogando direto e zero ban. O suporte no adm ajudou rápido!',
+                        date: 'Hoje'
+                    },
+                    {
+                        nick: 'Xit_Garena_Master',
+                        rating: 5,
+                        comment: 'O xit black.apk pra Android é o melhor que já usei! Pix gerou direitinho pro Nubank e liberou na hora!',
+                        date: 'Ontem'
+                    }
+                ];
+                localStorage.setItem('bx_reviews', JSON.stringify(initialReviews));
+            }
+
+            if (!localStorage.getItem('bx_tickets')) {
+                const initialTickets = [
+                    {
+                        id: 'TCK-501',
+                        nick: 'Pedrinho_FF',
+                        ffid: '11928301',
+                        subject: 'Como instalar no Android 14',
+                        message: 'Oi ADM, paguei e baixei o xit black.apk, como ativo a sobreposição de tela?',
+                        reply: 'Olá Pedrinho! Basta permitir nas configurações do celular a permissão de "Aparecer sobre outros apps".',
+                        date: '06/10/2026 12:00'
+                    }
+                ];
+                localStorage.setItem('bx_tickets', JSON.stringify(initialTickets));
+            }
+        }
+
+        function navigateTo(viewId) {
+            const views = ['home', 'proofs', 'my-downloads', 'support', 'admin'];
+            views.forEach(v => {
+                const el = document.getElementById(`view-${v}`);
+                if (el) el.classList.add('hidden');
+            });
+
+            const target = document.getElementById(`view-${viewId}`);
+            if (target) {
+                target.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            if (viewId === 'proofs') renderReviews();
+            if (viewId === 'my-downloads') renderUserDownloads();
+            if (viewId === 'support') renderUserTickets();
+            if (viewId === 'admin') renderAdminDashboard();
+        }
+
+        function togglePasswordVisibility(fieldId, iconId) {
+            const input = document.getElementById(fieldId);
+            const icon = document.getElementById(iconId);
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            }
+        }
+
+        function switchAuthTab(type) {
+            const tabUser = document.getElementById('tabUserAuth');
+            const tabAdmin = document.getElementById('tabAdminAuth');
+            const formUser = document.getElementById('userAuthForm');
+            const formAdmin = document.getElementById('adminAuthForm');
+
+            if (type === 'user') {
+                tabUser.classList.add('border-purple-500', 'text-purple-300');
+                tabUser.classList.remove('border-transparent', 'text-gray-400');
+                tabAdmin.classList.add('border-transparent', 'text-gray-400');
+                tabAdmin.classList.remove('border-purple-500', 'text-purple-300');
+                formUser.classList.remove('hidden');
+                formAdmin.classList.add('hidden');
+            } else {
+                tabAdmin.classList.add('border-purple-500', 'text-purple-300');
+                tabAdmin.classList.remove('border-transparent', 'text-gray-400');
+                tabUser.classList.add('border-transparent', 'text-gray-400');
+                tabUser.classList.remove('border-purple-500', 'text-purple-300');
+                formAdmin.classList.remove('hidden');
+                formUser.classList.add('hidden');
+            }
+        }
+
+        function openAuthModal() {
+            document.getElementById('authModal').classList.remove('hidden');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+        }
+
+        function handleUserAuth(e) {
+            e.preventDefault();
+            const nick = document.getElementById('authFFNick').value.trim();
+            if (!nick) return;
+
+            currentUser = { nick: nick, isAdmin: false };
+            localStorage.setItem('bx_current_user', JSON.stringify(currentUser));
+            updateNavUserArea();
+            closeModal('authModal');
+            showToast(`Bem-vindo, ${nick}! Login efetuado.`, 'success');
+        }
+
+        function handleAdminAuth(e) {
+            e.preventDefault();
+            const user = document.getElementById('adminUser').value.trim();
+            const pass = document.getElementById('adminPass').value;
+
+            // Admin password strict check (12345)
+            if (user === 'admin' && pass === '12345') {
+                currentUser = { nick: 'ADMIN', isAdmin: true };
+                localStorage.setItem('bx_current_user', JSON.stringify(currentUser));
+                updateNavUserArea();
+                closeModal('authModal');
+                showToast('Login de ADM confirmado com sucesso!', 'success');
+                navigateTo('admin');
+            } else {
+                showToast('Usuário ou Senha incorretos para o ADM (admin / 12345)', 'error');
+            }
+        }
+
+        function logout() {
+            currentUser = null;
+            localStorage.removeItem('bx_current_user');
+            updateNavUserArea();
+            navigateTo('home');
+            showToast('Sessão encerrada.', 'info');
+        }
+
+        function updateNavUserArea() {
+            const area = document.getElementById('navUserArea');
+            if (currentUser) {
+                if (currentUser.isAdmin) {
+                    area.innerHTML = `
+                        <button onclick="navigateTo('admin')" class="px-3 py-1.5 rounded-lg bg-purple-900/80 border border-purple-600 text-xs text-purple-200 font-bold flex items-center gap-1.5">
+                            <i class="fa-solid fa-user-shield text-purple-400"></i> ADM Dashboard
+                        </button>
+                        <button onclick="logout()" class="text-xs text-gray-400 hover:text-red-400 p-2">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                        </button>
+                    `;
+                } else {
+                    area.innerHTML = `
+                        <div class="flex items-center gap-2 bg-[#130924] border border-purple-900 px-3 py-1.5 rounded-xl">
+                            <div class="w-6 h-6 rounded-full bg-purple-600 flex items-center justify-center text-xs font-bold text-white">
+                                ${currentUser.nick.charAt(0).toUpperCase()}
+                            </div>
+                            <span class="text-xs font-bold text-purple-200">${currentUser.nick}</span>
+                        </div>
+                        <button onclick="logout()" class="text-xs text-gray-400 hover:text-red-400 p-2" title="Sair">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                        </button>
+                    `;
+                }
+            } else {
+                area.innerHTML = `
+                    <button onclick="openAuthModal()" class="px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs shadow-lg shadow-purple-900/50 transition">
+                        <i class="fa-solid fa-user-plus mr-1"></i> Entrar / Cadastrar
+                    </button>
+                `;
+            }
+        }
+
+        function renderProducts(filter = 'all') {
+            const grid = document.getElementById('productsGrid');
+            grid.innerHTML = '';
+
+            const filtered = filter === 'all' ? products : products.filter(p => p.platform === filter);
+
+            filtered.forEach(p => {
+                const card = document.createElement('div');
+                card.className = "bg-[#130924] border border-purple-900/60 rounded-2xl p-6 flex flex-col justify-between hover:border-purple-600 transition shadow-lg group";
+                card.innerHTML = `
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-full bg-purple-950 border border-purple-700/50 text-purple-300 text-[10px] font-bold uppercase tracking-wider flex items-center gap-1.5">
+                                <i class="fa-brands ${p.icon} text-purple-400"></i> ${p.platformBadge}
+                            </span>
+                            <span class="text-xs text-green-400 font-semibold flex items-center gap-1">
+                                <i class="fa-solid fa-shield-check"></i> Anti-ban
+                            </span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-purple-300 transition">${p.name}</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed">${p.desc}</p>
+                    </div>
+
+                    <div class="pt-6 mt-4 border-t border-purple-900/40 flex items-center justify-between">
+                        <div>
+                            <span class="text-[10px] text-gray-400 block uppercase font-semibold">Valor VIP</span>
+                            <span class="text-2xl font-black text-purple-400">R$ ${p.price.toFixed(2).replace('.', ',')}</span>
+                        </div>
+                        <button onclick="openCheckoutModal('${p.id}')" class="px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs shadow-md shadow-purple-900/40 transition flex items-center gap-1.5">
+                            <i class="fa-solid fa-cart-shopping"></i> Comprar
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterProducts(type) {
+            ['all', 'android', 'ios', 'pc'].forEach(f => {
+                const btn = document.getElementById(`btn-filter-${f}`);
+                if (f === type) {
+                    btn.className = "px-3 py-1.5 rounded-lg font-semibold bg-purple-600 text-white";
+                } else {
+                    btn.className = "px-3 py-1.5 rounded-lg font-semibold text-gray-400 hover:text-white";
+                }
+            });
+            renderProducts(type);
+        }
+
+        function openCheckoutModal(productId) {
+            if (!currentUser) {
+                showToast('Por favor, faça login ou cadastre seu Nick do FF antes de comprar.', 'warning');
+                openAuthModal();
+                return;
+            }
+
+            currentCheckoutProduct = products.find(p => p.id === productId);
+            if (!currentCheckoutProduct) return;
+
+            document.getElementById('checkoutProductName').innerText = currentCheckoutProduct.name;
+            document.getElementById('checkoutProductPrice').innerText = `R$ ${currentCheckoutProduct.price.toFixed(2).replace('.', ',')}`;
+            document.getElementById('checkoutFFID').value = '';
+            document.getElementById('checkoutModal').classList.remove('hidden');
+        }
+
+        function generatePixPayment(e) {
+            e.preventDefault();
+            const device = document.getElementById('checkoutDevice').value;
+            const ffid = document.getElementById('checkoutFFID').value.trim();
+
+            if (!device || !ffid) {
+                showToast('Preencha o dispositivo e o ID do jogo!', 'error');
+                return;
+            }
+
+            // Numeric ID Check
+            if (!/^\d+$/.test(ffid)) {
+                showToast('O ID do Free Fire deve conter APENAS números!', 'error');
+                return;
+            }
+
+            currentOrderPayload = {
+                id: 'ORD-' + Math.floor(1000 + Math.random() * 9000),
+                nick: currentUser.nick,
+                ffid: ffid,
+                device: device,
+                productName: currentCheckoutProduct.name,
+                fileName: currentCheckoutProduct.fileName,
+                price: currentCheckoutProduct.price,
+                date: new Date().toLocaleString('pt-BR')
+            };
+
+            closeModal('checkoutModal');
+
+            // Render PIX Modal
+            const pixCode = `00020126360014BR.GOV.BCB.PIX0111119484730143520400005303986540${currentCheckoutProduct.price.toFixed(2)}5802BR5912BLACK_XITADA6009SAO_PAULO62070503***6304`;
+            document.getElementById('pixCopiaCola').value = pixCode;
+
+            // Generate QR Code
+            const qrContainer = document.getElementById('qrcodeContainer');
+            qrContainer.innerHTML = '';
+            new QRCode(qrContainer, {
+                text: pixCode,
+                width: 170,
+                height: 170
+            });
+
+            document.getElementById('pixModal').classList.remove('hidden');
+        }
+
+        function confirmSimulatedPayment() {
+            if (!currentOrderPayload) return;
+
+            // Save to LocalStorage
+            const purchases = JSON.parse(localStorage.getItem('bx_purchases') || '[]');
+            purchases.unshift(currentOrderPayload);
+            localStorage.setItem('bx_purchases', JSON.stringify(purchases));
+
+            closeModal('pixModal');
+            showToast('Pagamento confirmado via Nubank! Seu arquivo foi liberado.', 'success');
+
+            // Automatically trigger text file blob download named xit black
+            triggerSimulatedDownload(currentOrderPayload.fileName, currentOrderPayload);
+
+            // Redirect to My Downloads
+            navigateTo('my-downloads');
+        }
+
+        function triggerSimulatedDownload(filename, order) {
+            const content = `=====================================================\n` +
+                            `BLACK XITADA VIP - PAINEL FREE FIRE 100% ANTI-BAN\n` +
+                            `=====================================================\n` +
+                            `Licença ativada para Nick: ${order.nick}\n` +
+                            `ID do Free Fire: ${order.ffid}\n` +
+                            `Dispositivo: ${order.device}\n` +
+                            `Data de Emissão: ${order.date}\n` +
+                            `Chave Pix Nubank: 119484730143\n` +
+                            `-----------------------------------------------------\n` +
+                            `INSTRUÇÕES DE INSTALAÇÃO DO XIT BLACK:\n` +
+                            `1. Abra o arquivo no seu ${order.device}.\n` +
+                            `2. Ative as permissões de sobreposição no aplicativo.\n` +
+                            `3. Abra o Free Fire e ligue o auxílio de mira e bypass.\n` +
+                            `4. Bom jogo e bom capa!\n` +
+                            `=====================================================\n`;
+
+            const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function renderUserDownloads() {
+            const container = document.getElementById('downloadsList');
+            container.innerHTML = '';
+
+            const purchases = JSON.parse(localStorage.getItem('bx_purchases') || '[]');
+            const myPurchases = currentUser ? purchases.filter(p => p.nick.toLowerCase() === currentUser.nick.toLowerCase()) : purchases;
+
+            if (myPurchases.length === 0) {
+                container.innerHTML = `
+                    <div class="bg-[#130924] border border-purple-900/60 rounded-2xl p-8 text-center space-y-3">
+                        <i class="fa-solid fa-folder-open text-4xl text-purple-600"></i>
+                        <h3 class="text-lg font-bold text-white">Nenhum arquivo baixado ainda</h3>
+                        <p class="text-xs text-gray-400">Compre um Xit no catálogo para liberar seus arquivos aqui.</p>
+                        <button onclick="navigateTo('home')" class="px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs transition">
+                            Ir para a Loja
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+
+            myPurchases.forEach(item => {
+                const card = document.createElement('div');
+                card.className = "bg-[#130924] border border-purple-900/60 rounded-2xl p-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4";
+                card.innerHTML = `
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-purple-950 border border-purple-700/60 flex items-center justify-center text-purple-400 text-2xl">
+                            <i class="fa-solid fa-file-arrow-down"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-base">${item.productName}</h4>
+                            <div class="flex flex-wrap gap-2 text-xs text-gray-400 mt-0.5">
+                                <span class="text-purple-300">ID FF: ${item.ffid}</span> • 
+                                <span>Aparelho: ${item.device}</span> • 
+                                <span class="text-green-400">Status: Ativado</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 w-full md:w-auto">
+                        <button onclick='triggerSimulatedDownload("${item.fileName}", ${JSON.stringify(item)})' class="flex-1 md:flex-none px-4 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs shadow-md transition flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-download"></i> Baixar ${item.fileName}
+                        </button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function renderReviews() {
+            const list = document.getElementById('reviewsList');
+            list.innerHTML = '';
+
+            const reviews = JSON.parse(localStorage.getItem('bx_reviews') || '[]');
+            document.getElementById('reviewCountBadge').innerText = `${reviews.length} Avaliações`;
+
+            reviews.forEach(r => {
+                const card = document.createElement('div');
+                card.className = "bg-[#130924] border border-purple-900/50 rounded-2xl p-4 space-y-2";
+                const stars = '⭐'.repeat(r.rating);
+                card.innerHTML = `
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <div class="w-7 h-7 rounded-full bg-purple-800 flex items-center justify-center text-xs font-bold text-white">
+                                ${r.nick.charAt(0).toUpperCase()}
+                            </div>
+                            <span class="text-xs font-bold text-purple-200">${r.nick}</span>
+                            <span class="text-[10px] bg-green-950 border border-green-700/50 text-green-400 px-2 py-0.5 rounded-full font-medium">
+                                <i class="fa-solid fa-check"></i> Sem Ban
+                            </span>
+                        </div>
+                        <span class="text-xs">${stars}</span>
+                    </div>
+                    <p class="text-xs text-gray-300 italic">"${r.comment}"</p>
+                    <span class="text-[10px] text-gray-500 block text-right">${r.date || 'Recente'}</span>
+                `;
+                list.appendChild(card);
+            });
+        }
+
+        function handleReviewSubmit(e) {
+            e.preventDefault();
+            const nick = document.getElementById('reviewNick').value.trim();
+            const rating = parseInt(document.getElementById('reviewRating').value);
+            const comment = document.getElementById('reviewComment').value.trim();
+
+            if (!nick || !comment) return;
+
+            const reviews = JSON.parse(localStorage.getItem('bx_reviews') || '[]');
+            reviews.unshift({
+                nick: nick,
+                rating: rating,
+                comment: comment,
+                date: 'Agora'
+            });
+
+            localStorage.setItem('bx_reviews', JSON.stringify(reviews));
+            document.getElementById('reviewForm').reset();
+            renderReviews();
+            showToast('Sua avaliação foi enviada com sucesso!', 'success');
+        }
+
+        function handleSupportSubmit(e) {
+            e.preventDefault();
+            const nick = document.getElementById('supportNick').value.trim();
+            const ffid = document.getElementById('supportFFID').value.trim();
+            const subject = document.getElementById('supportSubject').value.trim();
+            const message = document.getElementById('supportMessage').value.trim();
+
+            if (!/^\d+$/.test(ffid)) {
+                showToast('O ID do Free Fire deve conter apenas números!', 'error');
+                return;
+            }
+
+            const tickets = JSON.parse(localStorage.getItem('bx_tickets') || '[]');
+            tickets.unshift({
+                id: 'TCK-' + Math.floor(100 + Math.random() * 900),
+                nick: nick,
+                ffid: ffid,
+                subject: subject,
+                message: message,
+                reply: null,
+                date: new Date().toLocaleString('pt-BR')
+            });
+
+            localStorage.setItem('bx_tickets', JSON.stringify(tickets));
+            document.getElementById('supportForm').reset();
+            renderUserTickets();
+            showToast('Chamado enviado ao Suporte! O ADM responderá em breve.', 'success');
+        }
+
+        function renderUserTickets() {
+            const container = document.getElementById('userSupportTickets');
+            container.innerHTML = '';
+
+            const tickets = JSON.parse(localStorage.getItem('bx_tickets') || '[]');
+
+            if (tickets.length === 0) {
+                container.innerHTML = `<p class="text-gray-500 italic">Nenhum chamado aberto.</p>`;
+                return;
+            }
+
+            tickets.forEach(t => {
+                const card = document.createElement('div');
+                card.className = "bg-black/50 border border-purple-900/60 p-3 rounded-xl space-y-2";
+                card.innerHTML = `
+                    <div class="flex justify-between items-center text-purple-300 font-bold">
+                        <span>#${t.id} - ${t.subject}</span>
+                        <span class="text-[10px] text-gray-400">${t.date}</span>
+                    </div>
+                    <p class="text-gray-300">${t.message}</p>
+                    ${t.reply ? `
+                        <div class="bg-purple-950/80 p-2.5 rounded-lg border border-purple-800/60 text-purple-200 mt-2">
+                            <span class="font-bold text-purple-400 block"><i class="fa-solid fa-reply"></i> Resposta do ADM:</span>
+                            ${t.reply}
+                        </div>
+                    ` : `
+                        <span class="text-[10px] text-amber-400 block"><i class="fa-solid fa-clock"></i> Aguardando resposta do Adm...</span>
+                    `}
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function renderAdminDashboard() {
+            if (!currentUser || !currentUser.isAdmin) {
+                navigateTo('home');
+                showToast('Acesso negado! Faça login como ADM.', 'error');
+                return;
+            }
+
+            const purchases = JSON.parse(localStorage.getItem('bx_purchases') || '[]');
+            const tickets = JSON.parse(localStorage.getItem('bx_tickets') || '[]');
+            const reviews = JSON.parse(localStorage.getItem('bx_reviews') || '[]');
+
+            // Stats recalculation
+            const totalSales = purchases.length;
+            const totalRevenue = purchases.reduce((acc, p) => acc + (p.price || 0), 0);
+            const activeTickets = tickets.filter(t => !t.reply).length;
+
+            document.getElementById('adminTotalSales').innerText = totalSales;
+            document.getElementById('adminTotalRevenue').innerText = `R$ ${totalRevenue.toFixed(2).replace('.', ',')}`;
+            document.getElementById('adminActiveTickets').innerText = activeTickets;
+            document.getElementById('adminTotalReviews').innerText = reviews.length;
+
+            // Render Sales Table
+            const salesTable = document.getElementById('adminSalesTable');
+            salesTable.innerHTML = '';
+            purchases.forEach(s => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-purple-950/30 transition";
+                tr.innerHTML = `
+                    <td class="p-3 font-bold text-white">${s.nick}</td>
+                    <td class="p-3 font-mono text-purple-300">${s.ffid}</td>
+                    <td class="p-3">${s.device}</td>
+                    <td class="p-3 text-gray-300">${s.productName}</td>
+                    <td class="p-3 font-bold text-emerald-400">R$ ${s.price.toFixed(2)}</td>
+                    <td class="p-3 text-gray-400">${s.date}</td>
+                    <td class="p-3"><span class="bg-green-950 border border-green-700/50 text-green-400 px-2 py-0.5 rounded-full text-[10px]">Pago Nubank</span></td>
+                `;
+                salesTable.appendChild(tr);
+            });
+
+            // Render Admin Ticket Panel
+            const adminTicketsContainer = document.getElementById('adminSupportList');
+            adminTicketsContainer.innerHTML = '';
+
+            tickets.forEach((t, idx) => {
+                const card = document.createElement('div');
+                card.className = "bg-black/50 border border-purple-900/60 p-4 rounded-xl space-y-3";
+                card.innerHTML = `
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="text-xs font-bold text-purple-300">Nick FF: ${t.nick} (ID: ${t.ffid})</span>
+                            <h4 class="text-sm font-bold text-white mt-0.5">${t.subject}</h4>
+                        </div>
+                        <span class="text-[10px] text-gray-400">${t.date}</span>
+                    </div>
+                    <p class="text-xs text-gray-300 bg-purple-950/30 p-2.5 rounded-lg">${t.message}</p>
+                    
+                    ${t.reply ? `
+                        <div class="text-xs text-emerald-400 font-medium">
+                            <i class="fa-solid fa-check"></i> Respondido: ${t.reply}
+                        </div>
+                    ` : `
+                        <div class="flex gap-2 pt-1">
+                            <input type="text" id="adminReplyInput_${idx}" placeholder="Escreva a resposta do ADM..." class="flex-1 bg-black/80 border border-purple-900 rounded-lg px-3 py-1.5 text-xs text-white focus:outline-none focus:border-purple-500">
+                            <button onclick="submitAdminReply(${idx})" class="bg-purple-600 hover:bg-purple-700 text-white px-3 py-1.5 rounded-lg text-xs font-bold">
+                                Responder
+                            </button>
+                        </div>
+                    `}
+                `;
+                adminTicketsContainer.appendChild(card);
+            });
+        }
+
+        function submitAdminReply(ticketIndex) {
+            const input = document.getElementById(`adminReplyInput_${ticketIndex}`);
+            const replyText = input.value.trim();
+            if (!replyText) return;
+
+            const tickets = JSON.parse(localStorage.getItem('bx_tickets') || '[]');
+            if (tickets[ticketIndex]) {
+                tickets[ticketIndex].reply = replyText;
+                localStorage.setItem('bx_tickets', JSON.stringify(tickets));
+                showToast('Resposta do ADM registrada!', 'success');
+                renderAdminDashboard();
+            }
+        }
+
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+
+            let bgColor = 'bg-purple-900 border-purple-600 text-purple-200';
+            let icon = 'fa-circle-info';
+
+            if (type === 'success') {
+                bgColor = 'bg-emerald-950 border-emerald-600 text-emerald-200';
+                icon = 'fa-circle-check';
+            } else if (type === 'error') {
+                bgColor = 'bg-red-950 border-red-600 text-red-200';
+                icon = 'fa-triangle-exclamation';
+            } else if (type === 'warning') {
+                bgColor = 'bg-amber-950 border-amber-600 text-amber-200';
+                icon = 'fa-circle-exclamation';
+            }
+
+            toast.className = `p-3.5 rounded-xl border ${bgColor} text-xs font-bold shadow-2xl flex items-center gap-2 transition transform translate-y-2 opacity-0`;
+            toast.innerHTML = `<i class="fa-solid ${icon} text-base"></i> <span>${message}</span>`;
+
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-2', 'opacity-0');
+            }, 10);
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 3500);
+        }
+
+        function copyToClipboard(text) {
+            const temp = document.createElement('textarea');
+            temp.value = text;
+            document.body.appendChild(temp);
+            temp.select();
+            document.execCommand('copy');
+            document.body.removeChild(temp);
+            showToast('Chave PIX copiada para a área de transferência!', 'success');
+        }
+
+        window.onload = function() {
+            initLocalStorage();
+
+            const savedUser = localStorage.getItem('bx_current_user');
+            if (savedUser) {
+                currentUser = JSON.parse(savedUser);
+            }
+
+            updateNavUserArea();
+            renderProducts();
+        };
+    </script>
+</body>
+</html>
